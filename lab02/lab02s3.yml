@@ -1,0 +1,22 @@
+Description: >
+  Isaac Gutierrez
+  Bucket Definition
+
+Parameters:
+  EnvironmentName:
+    Description: This is the name for the environment
+    Type: String
+
+Resources:
+    S3Bucket:
+      Type: 'AWS::S3::Bucket'
+      DeletionPolicy: Retain
+      Properties:
+        BucketName: lab02apprep
+
+Outputs:
+    DeployBucket:
+      Description: Bucket ID where to find deployment files
+      Value: !Ref S3Bucket
+      Export:
+        Name: !Sub ${EnvironmentName}-BUCKETID
