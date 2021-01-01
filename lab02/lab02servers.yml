@@ -214,6 +214,7 @@ Resources:
             Fn::ImportValue: !Sub "${EnvironmentName}-PUB1-SN"
 
 Outputs:
+
   AppLB:
     Description: Access URL to load balancer
     Value: !Join ["",["http://",!GetAtt AppLB.DNSName]]
